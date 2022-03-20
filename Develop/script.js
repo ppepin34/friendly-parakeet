@@ -12,13 +12,18 @@ const specialChars = "@#$%^&*";
 var generatePassword = function () {
   // Assign length
 
-  var pwdLength = parseInt(prompt("Please select a password length. Your password must be at least 8 and no more than 128 characters long."));
-  
-  //debugger
-  if (pwdLength === 0 || pwdLength === NaN) {
-    alert("Please choose a password length");
+  var pwdInput = prompt("Please select a password length. Your password must be at least 8 and no more than 128 characters long.");
+
+  //check for a number
+  if (isNaN(pwdInput)){
+    alert("Please enter as a numeral");
     return "";
   };
+  
+  //turn string to int
+  var pwdLength = parseInt(pwdInput);
+  
+  //ensure proper length of password
   
   if (pwdLength < 8 || pwdLength > 128) {
     alert("Please choose an appropriate password length");
@@ -69,16 +74,17 @@ var generatePassword = function () {
 
   //declare password variable
   var password = "";
-debugger
+
   //create password string
   for (var i = 0; i < pwdLength; i++) {
     password += characters.charAt(
       Math.floor(Math.random() * characters.length)
     );
-  }
+  };
 
+  //return password writePassword function
   return password;
-}
+};
 
 
 // Get references to the #generate element
