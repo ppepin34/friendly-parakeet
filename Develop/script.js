@@ -21,7 +21,7 @@ var generatePassword = function () {
   };
   
   if (pwdLength < 8 || pwdLength > 128) {
-    alert("Please choose an appropriate password lenghth");
+    alert("Please choose an appropriate password length");
     return "";
   };
 
@@ -60,20 +60,24 @@ var generatePassword = function () {
   if (specialCharsConfirm) {
     characters += specialChars
   };
-
+ 
+  //if none included send back to beginning
   if (characters === "") {
     alert("You need to select characters for the password");
     return "";
   };
 
-  //if none included send back to beginning
-
+  //declare password variable
   var password = "";
+debugger
+  //create password string
   for (var i = 0; i < pwdLength; i++) {
-    
-
-
+    password += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
   }
+
+  return password;
 }
 
 
